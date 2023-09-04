@@ -1,0 +1,129 @@
+﻿@page
+@model WebApplication1.Views.User.MachineProblemModel
+@{
+
+    var FirstName= "Louis Ivan";
+    var LastName= "Virgo";
+    DateTime Birthday= DateTime.Parse("22/09/2002") ;
+    DateTime Today = DateTime.Now;
+    bool IsTenured= true;
+    int SalaryPerHour= 50;
+    var Email= "louisivan.virgo.cics@ust.edu.ph";
+    var age= Today.Subtract(Birthday).Days / 365;
+    int salaryPerDay = SalaryPerHour * 8;
+    int salaryPerMonth = salaryPerDay * 30;
+    var Status=("");
+    var Name = "Louis Ivan Virgo";
+
+    int PrelimGrade = 90;
+    int FinalGrade = 92;
+
+    int total = PrelimGrade + FinalGrade;
+    int SemGrade = total / 2;
+    String TransGrade = "";
+
+    if (IsTenured)
+    {
+        Status = "Permanent";
+        salaryPerMonth= salaryPerMonth + 500;
+
+    }
+    else
+    {
+        Status = "Probationary";
+    }
+
+
+
+    if (SemGrade >= 96 &&  SemGrade <= 100)
+    {
+
+        TransGrade = "1.00";
+    }
+    else if (SemGrade >= 94 && SemGrade <= 95 )
+    {
+        TransGrade = "1.25";
+    }
+    else if (SemGrade >= 92 && SemGrade <= 93)
+    {
+        TransGrade = "1.50";
+    }
+    else if (SemGrade >= 89 && SemGrade <= 91)
+    {
+        TransGrade = "1.75";
+    }
+    else if (SemGrade >= 87 && SemGrade <= 88)
+    {
+        TransGrade = "2.00";
+    }
+    else if (SemGrade >= 84 && SemGrade <= 86)
+    {
+        TransGrade = "2.25";
+    }
+    else if (SemGrade >= 82 && SemGrade <= 83)
+    {
+        TransGrade = "2.50";
+    }
+    else if (SemGrade >= 79 && SemGrade <= 81)
+    {
+        TransGrade = "1.25";
+    }
+    else if (SemGrade >= 75 && SemGrade <=78)
+    {
+        TransGrade = "3.00";
+    }
+    else
+    {
+        TransGrade = "5.00";
+    }
+}
+
+
+
+<h1>A.</h1>
+<h2>Im @FirstName and I'm @age yrs old.</h2>
+<br />
+
+<h1>B.</h1>
+<h2>Email: @Email</h2>
+<h2>Domain: @Email.Substring(21,10)</h2>
+<h2>Username: @Email.Substring(0,9)</h2>
+
+<br />
+<h1>C.</h1>
+<h2>Name: @FirstName @LastName</h2>
+<h2>Email: @Email</h2>
+<h2>Status: @Status</h2>
+<h2> Daily Salary: $@salaryPerDay </h2>
+<h2>Month Salary: $@salaryPerMonth</h2>
+
+<br />
+<table class="table table-light">
+    <tr>
+       <td>Name</td> 
+       <td>@Name</td>
+    </tr>
+    <tr> 
+        <td>Prelim</td>
+        <td>@PrelimGrade</td>
+    </tr>
+    <tr>
+        <td>Final</td>
+        <td>@FinalGrade</td>
+    </tr>
+    <tr>
+        <td>Semestral Grade</td>
+        <td>@SemGrade</td>
+    </tr>
+    <tr>
+        <td>Transmuted Grade
+        <td> @TransGrade</td>
+        
+    </tr>
+</table>
+
+
+
+
+
+
